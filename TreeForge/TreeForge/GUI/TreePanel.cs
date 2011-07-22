@@ -44,12 +44,14 @@ namespace TreeForge.GUI
             base.Update(g);
             cam.Update(g);
             tree.Update(g);
+
         }
 
         public override void Draw(GameTime g)
         {
             base.Draw(g);
             Device.Clear(Color.MediumBlue);
+
 
             primBatch.Begin(PrimitiveType.TriangleList, cam);
             tree.Draw(g, spriteBatch, primBatch);

@@ -35,66 +35,77 @@ namespace TreeForge.SkillTrees
 
         private TreeNode[] CreateTierOne()
         {
-            TreeNode[] firstTier = { null, new TreeNode(), new TreeNode(), new TreeNode(), null, null };
+            int tier = 1;
+            TreeNode[] firstTier = { null, new TreeNode(tier,4), new TreeNode(tier,1), new TreeNode(tier,4), null, null };
             return firstTier;
         }
 
         private TreeNode[] CreateTierTwo()
         {
-            TreeNode[] secondTier = { null, new TreeNode(), new TreeNode(), new TreeNode(), null, null };
+            int tier = 2;
+            TreeNode[] secondTier = { new TreeNode(tier, 5), new TreeNode(tier, 4), new TreeNode(tier, 1), new TreeNode(tier, 4), new TreeNode(tier, 5), null };
             return secondTier;
         }
 
         private TreeNode[] CreateTierThree()
         {
-            TreeNode[] thirdTier = { null, new TreeNode(), new TreeNode(), new TreeNode(), null, null };
+            int tier = 3;
+            TreeNode[] thirdTier = { new TreeNode(tier, 1), new TreeNode(tier, 4), new TreeNode(tier, 1), new TreeNode(tier, 4), new TreeNode(tier, 1), new TreeNode(tier, 4) };
             return thirdTier;
         }
 
         private TreeNode[] CreateTierFour()
         {
-            TreeNode[] fourthTier = { null, new TreeNode(), new TreeNode(), new TreeNode(), null, null };
+            int tier = 4;
+            TreeNode[] fourthTier = { new TreeNode(tier,3), null, new TreeNode(tier,5), new TreeNode(tier,1), new TreeNode(tier,5), null };
             return fourthTier;
         }
 
         private TreeNode[] CreateTierFive()
         {
-            TreeNode[] fifthTier = { null, new TreeNode(), new TreeNode(), new TreeNode(), null, null };
+            int tier = 5;
+            TreeNode[] fifthTier = { null, new TreeNode(tier, 4), new TreeNode(tier, 1), new TreeNode(tier, 5), new TreeNode(tier, 5), new TreeNode(tier, 3) };
             return fifthTier;
         }
         private TreeNode[] CreateTierSix()
         {
-            TreeNode[] sixthTier = { null, new TreeNode(), new TreeNode(), new TreeNode(), null, null };
+            int tier = 6;
+            TreeNode[] sixthTier = { new TreeNode(tier, 5), new TreeNode(tier, 3), new TreeNode(tier, 5), new TreeNode(tier, 5), null, new TreeNode(tier, 1) };
             return sixthTier;
         }
 
         private TreeNode[] CreateTierSeven()
         {
-            TreeNode[] seventhTier = { null, new TreeNode(), new TreeNode(), new TreeNode(), null, null };
+            int tier = 7;
+            TreeNode[] seventhTier = { new TreeNode(tier, 1), new TreeNode(tier, 1), new TreeNode(tier, 5), new TreeNode(tier, 5), new TreeNode(tier, 3), null };
             return seventhTier;
         }
 
         private TreeNode[] CreateTierEight()
         {
-            TreeNode[] eigthTier = { null, new TreeNode(), new TreeNode(), new TreeNode(), null, null };
+            int tier = 8;
+            TreeNode[] eigthTier = { new TreeNode(tier, 1), new TreeNode(tier, 3), new TreeNode(tier, 1), new TreeNode(tier, 5), new TreeNode(tier, 5), null };
             return eigthTier;
         }
 
         private TreeNode[] CreateTierNine()
         {
-            TreeNode[] ninthTier = { null, new TreeNode(), new TreeNode(), new TreeNode(), null, null };
+            int tier = 9;
+            TreeNode[] ninthTier = { new TreeNode(tier, 3), new TreeNode(tier, 5), new TreeNode(tier, 1), new TreeNode(tier, 1), new TreeNode(tier, 3), null };
             return ninthTier;
         }
 
         private TreeNode[] CreateTierTen()
         {
-            TreeNode[] tenthTier = { null, new TreeNode(), new TreeNode(), new TreeNode(), null, null };
+            int tier = 10;
+            TreeNode[] tenthTier = { new TreeNode(tier, 5), null, new TreeNode(tier, 5), null, new TreeNode(tier, 5), null };
             return tenthTier;
         }
 
         private TreeNode[] CreateTierEleven()
         {
-            TreeNode[] eleventhTier = { null, new TreeNode(), new TreeNode(), new TreeNode(), null, null };
+            int tier = 11;
+            TreeNode[] eleventhTier = { new TreeNode(tier, 1), null, new TreeNode(tier, 1), null, new TreeNode(tier, 1), null };
             return eleventhTier;
         }
     }

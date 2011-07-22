@@ -12,8 +12,8 @@ namespace TreeForge.SkillTrees
     public class SkillTree
     {
         protected List<TreeNode[]> tiers;
-        private float horizontalSpacing = 0.5f;
-        private float verticalSpacing = 0.5f;
+        private float horizontalSpacing = 0.8f;
+        private float verticalSpacing = 0.8f;
 
         public SkillTree()
         {
@@ -26,6 +26,25 @@ namespace TreeForge.SkillTrees
         protected virtual void SetUpTiers()
         {
 
+        }
+
+        private int GetPoints()
+        {
+            int points= 0;
+            for (int i = 0; i < tiers.Count; i++)
+            {
+                for (int j = 0; j < tiers[i].Length; j++)
+                {
+                    TreeNode tn = tiers[i][j];
+                    if (tn == null)
+                    {
+                        continue;
+                    }
+                    points += tn.points;
+                }
+            }
+
+            return points;
         }
 
         private void PositionNodes()
@@ -46,7 +65,18 @@ namespace TreeForge.SkillTrees
 
         public void Update(GameTime g)
         {
-
+            for (int i = 0; i < tiers.Count; i++)
+            {
+                for (int j = 0; j < tiers[i].Length; j++)
+                {
+                    TreeNode tn = tiers[i][j];
+                    if (tn == null)
+                    {
+                        continue;
+                    }
+                    tn.Update(g,GetPoints());
+                }
+            }
         }
 
         public void Draw(GameTime g, SpriteBatch spriteBatch, PrimitiveBatch2D primBatch)
