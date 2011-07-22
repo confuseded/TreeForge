@@ -31,6 +31,7 @@ namespace TreeForge
             IsFixedTimeStep = true;
 
             guiManager = new GUIManager(this);
+            guiManager.AddPanel(new TreePanel(Vector2.Zero, Vector2.One));
             Components.Add(guiManager);
             Components.Add(new InputHandler(this));
 
