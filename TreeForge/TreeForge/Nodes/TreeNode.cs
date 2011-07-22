@@ -32,6 +32,22 @@ namespace TreeForge.Nodes
             return new RectangleF(new Vector2(Pos.X - Dim.X, Pos.Y + Dim.Y), new Vector2(Pos.X + Dim.X, Pos.Y - Dim.Y));
         }
 
+        public bool CheckMouseClick(Vector2 mouse)
+        {
+            RectangleF bounds = GetWorldRect();
+            if (mouse.X >= bounds.UpperLeft.X & mouse.X <= bounds.BottomRight.X & mouse.Y >= bounds.BottomRight.Y & mouse.Y <= bounds.UpperLeft.Y)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public void AddPoint()
+        {
+            if (available & points != mp)
+                ++points;
+        }
 
         public void Update(GameTime g, int totalPoints)
         {
@@ -66,7 +82,7 @@ namespace TreeForge.Nodes
                                    new Vector3(Pos.X + Dim.X, Pos.Y + Dim.Y, 0),
                                    new Vector3(Pos.X + Dim.X, Pos.Y - Dim.Y, 0),
                                    new Vector3(Pos.X - Dim.X, Pos.Y - Dim.Y, 0),
-                                   Color.Gold);
+                                   Color.DarkOrange);
             }
 
             else

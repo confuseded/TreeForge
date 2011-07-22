@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
+using TreeForge.Input;
 using TreeForge.Nodes;
 using TreeForge.Graphics;
 
@@ -63,8 +65,10 @@ namespace TreeForge.SkillTrees
             }
         }
 
-        public void Update(GameTime g)
+        public void Update(GameTime g, Camera2D cam)
         {
+            Vector2 worldMousePos = cam.GetWorldMousePos();
+
             for (int i = 0; i < tiers.Count; i++)
             {
                 for (int j = 0; j < tiers[i].Length; j++)
@@ -74,7 +78,9 @@ namespace TreeForge.SkillTrees
                     {
                         continue;
                     }
-                    tn.Update(g,GetPoints());
+                    if (tn.CheckMouseClick(worldMousePos) & InputHandler.MouseState.LeftButton == ButtonState.Pressed & InputHandler.LastMouseState.LeftButton == ButtonState.Released)
+                        tn.AddPoint();
+                    tn.Update(g, GetPoints());
                 }
             }
         }

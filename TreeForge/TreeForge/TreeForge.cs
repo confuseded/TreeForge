@@ -27,7 +27,7 @@ namespace TreeForge
             this.Window.AllowUserResizing = true;
             graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
 
-            IsMouseVisible = false;
+            IsMouseVisible = true;
             IsFixedTimeStep = true;
 
             guiManager = new GUIManager(this);

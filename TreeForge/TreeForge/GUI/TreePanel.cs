@@ -43,7 +43,7 @@ namespace TreeForge.GUI
         {
             base.Update(g);
             cam.Update(g);
-            tree.Update(g);
+            tree.Update(g,cam);
 
         }
 
