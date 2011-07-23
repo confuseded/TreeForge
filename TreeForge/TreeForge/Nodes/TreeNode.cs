@@ -12,19 +12,23 @@ namespace TreeForge.Nodes
     {
         public Vector2 Dim;
         public Vector2 Pos;
+        public Vector2 Req;
         public int points;
         private int mp;
         private bool available;
         private int t;
+        private bool tierAvailable;
  
 
-        public TreeNode(int tier,int maxPoints)
+        public TreeNode(int tier,int maxPoints, Vector2 require)
         {
             Dim = new Vector2(1, 1);
             Pos = Vector2.Zero;
             points = 0;
             mp = maxPoints;
             t = tier;
+            Req = require;
+            tierAvailable = false;
         }
 
         public RectangleF GetWorldRect()
@@ -49,10 +53,19 @@ namespace TreeForge.Nodes
                 ++points;
         }
 
-        public void Update(GameTime g, int totalPoints)
+        public int GetMaximumPointsAllowed()
         {
-            if (totalPoints == (t * 5)-5)
+            return mp;
+        }
+
+
+        public void Update(GameTime g, int totalPoints, bool requirementsMet)
+        {
+            if (totalPoints == ((t * 5)-5))
+                tierAvailable = true;
+            if (requirementsMet & tierAvailable)
                 available = true;
+
             
         }
 

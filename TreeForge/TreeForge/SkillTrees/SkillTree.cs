@@ -16,6 +16,7 @@ namespace TreeForge.SkillTrees
         protected List<TreeNode[]> tiers;
         private float horizontalSpacing = 0.8f;
         private float verticalSpacing = 0.8f;
+        public int MaxTotalPoints = 51;
 
         public SkillTree()
         {
@@ -68,19 +69,30 @@ namespace TreeForge.SkillTrees
         public void Update(GameTime g, Camera2D cam)
         {
             Vector2 worldMousePos = cam.GetWorldMousePos();
+            Vector2 noReq = new Vector2(-1, -1);
 
             for (int i = 0; i < tiers.Count; i++)
             {
                 for (int j = 0; j < tiers[i].Length; j++)
                 {
                     TreeNode tn = tiers[i][j];
+                    bool requirementsMet = true;
                     if (tn == null)
                     {
                         continue;
                     }
-                    if (tn.CheckMouseClick(worldMousePos) & InputHandler.MouseState.LeftButton == ButtonState.Pressed & InputHandler.LastMouseState.LeftButton == ButtonState.Released)
+                    //check requirements
+                    if (tn.Req != noReq)
+                    {
+                        if (tiers[(int)tn.Req.X][(int)tn.Req.Y].points != tiers[(int)tn.Req.X][(int)tn.Req.Y].GetMaximumPointsAllowed())
+                        {
+                            requirementsMet = false;
+                        }
+                    }
+
+                    if (tn.CheckMouseClick(worldMousePos) & InputHandler.MouseState.LeftButton == ButtonState.Pressed & InputHandler.LastMouseState.LeftButton == ButtonState.Released & GetPoints() != MaxTotalPoints & requirementsMet)
                         tn.AddPoint();
-                    tn.Update(g, GetPoints());
+                    tn.Update(g, GetPoints(), requirementsMet);
                 }
             }
         }
